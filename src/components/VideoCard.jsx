@@ -16,7 +16,6 @@ const VideoCard = ({
     snippet,
   },
 }) => {
-  console.log(snippet);
   return (
     <Card sx={{
       width:{md: '320px', xs:'100%'},
