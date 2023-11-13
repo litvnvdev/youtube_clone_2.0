@@ -3,8 +3,7 @@ import { Box, Typography, CardMedia, CardContent } from "@mui/material";
 import { Check, CheckCircle } from "@mui/icons-material";
 import { demoProfilePicture } from "../utils/constants";
 
-const ChannelCard = ({ channelDetails }) => {
-  console.log(channelDetails);
+const ChannelCard = ({ channelDetails, marginTop }) => {
   return (
     <Box
       sx={{
@@ -15,7 +14,8 @@ const ChannelCard = ({ channelDetails }) => {
         alignItems: 'center',
         width:{xs: '356px', md: '320px' },
         height: '326px',
-        margin: 'auto'
+        margin: 'auto',
+        marginTop,
       }}
     >
       <Link to={`/channel/${channelDetails?.id?.channelId}}`}>
@@ -53,10 +53,16 @@ const ChannelCard = ({ channelDetails }) => {
               }}
             />
           </Typography>
-          {channelDetails?.statistics?.subcscriberCount && (
-            <Typography>
-              {parseInt(channelDetails.statistics.subcscriberCount).toLocaleString()} Subscribers
+          {channelDetails?.statistics?.subscriberCount && (
+            <Box>
+               <Typography sx={{color: '#fff'}}>
+              {parseInt(channelDetails?.statistics?.subscriberCount).toLocaleString()} Subscribers
             </Typography>
+              <Typography>
+                {channelDetails?.statistics?.videoCount} video on channel
+              </Typography>
+            </Box>
+
           )}
         </CardContent>
       </Link>
