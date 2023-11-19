@@ -86,3 +86,9 @@ a {
     width:200px;
   }
 }
+
+@media screen and (max-width: 370px) {
+  .search-bar {
+    width:45vw;
+  }
+}
